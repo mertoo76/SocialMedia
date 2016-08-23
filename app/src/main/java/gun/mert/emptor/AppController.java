@@ -1,5 +1,5 @@
 package gun.mert.emptor;
-
+// face için
 import android.app.Application;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;

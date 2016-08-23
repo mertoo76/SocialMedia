@@ -85,7 +85,7 @@ FacebookActivity facebookActivity;
 
 
 
-        //
+        //gmail
 gmail = (Button)findViewById(R.id.auth);
 
         gmail.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +97,7 @@ gmail = (Button)findViewById(R.id.auth);
         });
 
 
-        //
+        //gmail
 
 
 
@@ -105,7 +105,7 @@ gmail = (Button)findViewById(R.id.auth);
 
         //
 
-
+// face
        user_name=(TextView)findViewById(R.id.face_name);
         login = (Button) findViewById(R.id.button);
 
@@ -148,7 +148,7 @@ gmail = (Button)findViewById(R.id.auth);
         });
 
 
-
+// face
 
 
 
@@ -179,7 +179,7 @@ gmail = (Button)findViewById(R.id.auth);
         super.onDestroy();
         accessTokenTracker.stopTracking();
     }
-
+// face
     private void updateWithToken(AccessToken currentAccessToken) {
         if (currentAccessToken != null) {
             Log.i("FaceLog", "Already Logged.");
@@ -227,7 +227,7 @@ gmail = (Button)findViewById(R.id.auth);
 
         }
     }
-
+// face
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);

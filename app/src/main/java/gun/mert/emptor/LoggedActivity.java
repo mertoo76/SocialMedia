@@ -1,5 +1,5 @@
 package gun.mert.emptor;
-
+// face için
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;

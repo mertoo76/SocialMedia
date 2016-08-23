@@ -1,5 +1,5 @@
 package gun.mert.emptor;
-
+// gmail
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
