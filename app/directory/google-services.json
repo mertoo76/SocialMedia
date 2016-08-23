@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "541390792586",
+    "project_id": "emptor-140914"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541390792586:android:c69a5408226df4f4",
+        "android_client_info": {
+          "package_name": "gun.mert.emptor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541390792586-t4ctvsc9d7ir8brpad4caqu737jmhc5m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gun.mert.emptor",
+            "certificate_hash": "95350502F2464483295AE98FF219A5A67A140499"
+          }
+        },
+        {
+          "client_id": "541390792586-mjo9fusgjrdkpf6dst1h5ri0m62la7kj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcmRJTvUn4VyyRLUQV0AetpweSeCmfZKc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
