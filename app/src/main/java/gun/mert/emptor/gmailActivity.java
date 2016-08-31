@@ -70,6 +70,8 @@ public class gmailActivity extends AppCompatActivity implements View.OnClickList
 
         //Setting onclick listener to signing button
         signInButton.setOnClickListener(this);
+
+        signIn();
     }
 
 
