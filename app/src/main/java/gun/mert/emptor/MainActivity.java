@@ -105,6 +105,20 @@ gmail = (Button)findViewById(R.id.auth);
 
         //
 
+       Button ınsta = (Button)findViewById(R.id.ınsta);
+
+        ınsta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getApplicationContext(),InstActivity.class);
+                startActivity(i);
+            }
+        });
+
+
+
+
 // face
        user_name=(TextView)findViewById(R.id.face_name);
         login = (Button) findViewById(R.id.button);

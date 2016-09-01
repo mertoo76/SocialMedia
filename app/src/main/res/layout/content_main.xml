@@ -53,5 +53,16 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instgram"
+        android:id="@+id/ınsta"
+        android:layout_below="@+id/auth"
+        android:layout_alignRight="@+id/auth"
+        android:layout_alignEnd="@+id/auth"
+        android:layout_alignLeft="@+id/auth"
+        android:layout_alignStart="@+id/auth" />
+
 
 </RelativeLayout>

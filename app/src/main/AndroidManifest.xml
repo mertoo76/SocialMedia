@@ -44,7 +44,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="gun.mert.emptor.MainActivity" />
         </activity>
-        <activity android:name=".gmailActivity"></activity>
+        <activity android:name=".gmailActivity" />
+        <activity android:name=".InstActivity" />
     </application>
 
 </manifest>
