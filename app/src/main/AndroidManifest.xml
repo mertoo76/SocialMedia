@@ -46,6 +46,12 @@
         </activity>
         <activity android:name=".gmailActivity" />
         <activity android:name=".InstActivity" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="59ff70c540170ce6eef7cb530395c4887cde5968" />
+
+        <activity android:name=".twitAcivity"></activity>
     </application>
 
 </manifest>

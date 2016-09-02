@@ -41,6 +41,16 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.*;
 import com.facebook.CallbackManager;
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.Callback;
+import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.TwitterApiClient;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import com.twitter.sdk.android.core.TwitterException;
+import com.twitter.sdk.android.core.TwitterSession;
+import com.twitter.sdk.android.core.identity.TwitterLoginButton;
+import com.twitter.sdk.android.core.models.User;
+import com.twitter.sdk.android.core.services.AccountService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,6 +64,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
+import io.fabric.sdk.android.Fabric;
+import retrofit2.Call;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     LoginButton loginButton;
@@ -66,24 +79,69 @@ FacebookActivity facebookActivity;
 //
 
 
+    //
+    private static final String TWITTER_KEY = "Ob8BAF5oA4afpOLByauuoUARh";
+    private static final String TWITTER_SECRET = "0C22Zqp8t9UBTjkX83FQUootQ6o2NiA9UXYSHVcQlWokOsitHN";
+
+    //Tags to send the username and image url to next activity using intent
+    public static final String KEY_USERNAME = "username";
+    public static final String KEY_PROFILE_IMAGE_URL = "image_url";
+
+    //Twitter Login Button
+    TwitterLoginButton twitterLoginButton;
+    //
+
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+        twitterLoginButton.onActivityResult(requestCode, resultCode, data);
     }
+
+
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//twit
+        //Initializing TwitterAuthConfig, these two line will also added automatically while configuration we did
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        Fabric.with(this, new Twitter(authConfig));
 
+
+        //
         setContentView(R.layout.activity_main);
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+// twit
 
+
+//Initializing twitter login button
+        twitterLoginButton = (TwitterLoginButton) findViewById(R.id.twitterLogin);
+
+        //Adding callback to the button
+        twitterLoginButton.setCallback(new Callback<TwitterSession>() {
+            @Override
+            public void success(Result<TwitterSession> result) {
+                //If login succeeds passing the Calling the login method and passing Result object
+                login(result);
+            }
+
+            @Override
+            public void failure(TwitterException exception) {
+                //If failure occurs while login handle it here
+                Log.d("TwitterKit", "Login with Twitter failure", exception);
+            }
+        });
+
+
+        //
 
         //gmail
 gmail = (Button)findViewById(R.id.auth);
@@ -175,6 +233,56 @@ gmail = (Button)findViewById(R.id.auth);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+
+    //twit
+    public void login(Result<TwitterSession> result) {
+
+        //Creating a twitter session with result's data
+        TwitterSession session = result.data;
+
+        //Getting the username from session
+        final String username = session.getUserName();
+
+        //This code will fetch the profile image URL
+        //Getting the account service of the user logged in
+
+      // burdaki verifyCredential iki parametre aldığı için aşağıdaki çözüme yöneldim.
+        TwitterSession   sessionnew = result.data;
+        Twitter          twitternew = Twitter.getInstance();
+        TwitterApiClient api     = twitternew.core.getApiClient(sessionnew);
+        AccountService servicenew = api.getAccountService();
+        Call<User> usernew    = servicenew.verifyCredentials(true, true);
+        usernew.enqueue(new Callback<User>() {
+                    @Override
+                    public void failure(TwitterException e) {
+                        //If any error occurs handle it here
+                    }
+
+                    @Override
+                    public void success(Result<User> userResult) {
+                        //If it succeeds creating a User object from userResult.data
+                        User user = userResult.data;
+
+                        //Getting the profile image url
+                        String profileImage = user.profileImageUrl.replace("_normal", "");
+
+                        //Creating an Intent
+                        Intent intent = new Intent(MainActivity.this, twitAcivity.class);
+
+                        //Adding the values to intent
+                        intent.putExtra(KEY_USERNAME,username);
+                        intent.putExtra(KEY_PROFILE_IMAGE_URL, profileImage);
+
+                        //Starting intent
+                        startActivity(intent);
+                    }
+                });
+    }
+
+
+    //
+
 
 
     //
