@@ -80,8 +80,8 @@ FacebookActivity facebookActivity;
 
 
     //
-    private static final String TWITTER_KEY = "Ob8BAF5oA4afpOLByauuoUARh";
-    private static final String TWITTER_SECRET = "0C22Zqp8t9UBTjkX83FQUootQ6o2NiA9UXYSHVcQlWokOsitHN";
+    private static final String TWITTER_KEY = "yourkey";
+    private static final String TWITTER_SECRET = "yoursecret";
 
     //Tags to send the username and image url to next activity using intent
     public static final String KEY_USERNAME = "username";

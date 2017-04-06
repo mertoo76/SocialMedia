@@ -20,8 +20,8 @@ import java.security.NoSuchAlgorithmException;
 public class AppController  extends Application{
 
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
-    private static final String TWITTER_KEY = "Ob8BAF5oA4afpOLByauuoUARh";
-    private static final String TWITTER_SECRET = "	0C22Zqp8t9UBTjkX83FQUootQ6o2NiA9UXYSHVcQlWokOsitHN";
+    private static final String TWITTER_KEY = "yourkey";
+    private static final String TWITTER_SECRET = "	yoursecret";
 
 
 

@@ -3,7 +3,7 @@
     <string name="project_id">emptor-140914</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="keyhash">lTUFAvJGRIMpWumP8hmlpnoUBJk=</string>
-    <string name="face_id">110079296109932</string>
+    <string name="keyhash">yourFaceKeyhase</string>
+    <string name="face_id">yourfaceıd</string>
     <string name="action_settings">Settings</string>
 </resources>
